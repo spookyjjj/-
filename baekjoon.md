@@ -23,4 +23,36 @@
   System.out.print(num + " "); //다만 콘솔창에서는 입출력이 같이 일어나서 보이기에는 예제출력과 안 같음  
   ```
 - 10952 A+B - 5  
+    ```java  
+  while (a != 0 || b != 0) {
+			a = scan.nextInt();
+			b = scan.nextInt();
+			if (a + b == 0) {
+				continue;
+			}
+			System.out.println(a + b);
+		} //a와 b가 0이 아닌한 계속한다!! 이것보다는
+  while (true) {      
+			int a = scan.nextInt();
+			int b = scan.nextInt();
+			if (a == 0 && b == 0) {
+				break;
+			}
+			System.out.println(a + b);
+		}  // a와 b가 0이면 끝난다(break)!! 이게 더 깔끔하니 ★이런식으로 생각하기~!!
+    ```
+- 10951 A+B - 4  
+  End Of File(EOF): 몇개의 입력이 들어오는지 모르는 문제에서 사용  
+  
+  Scanner에서는 .hasNextInt()로 처리함. 입력이 있으면 true이므로 반복문 실행O, 없으면 false이므로 반복문 실행X
     
+    
+### 문자열
+- 11720 숫자의 합  
+  long으로도 double로도 표현이 힘든 숫자는 아예 문자열로 취급해서 해결
+  ```java
+  System.out.println((int) '0'); //48  
+  System.out.println((int) '1'); //49  
+  ...
+  System.out.println((int) '9'); //57  
+  ```
