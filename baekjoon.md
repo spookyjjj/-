@@ -55,4 +55,10 @@
   System.out.println((int) '1'); //49  
   ...
   System.out.println((int) '9'); //57  
+  ```  
+- 10809 알파벳 찾기  
+  ```java  
+  System.out.println((int) 'a'); //97  
+  ...
+  System.out.println((int) 'z'); //112  
   ```
