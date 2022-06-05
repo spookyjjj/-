@@ -60,5 +60,17 @@
   ```java  
   System.out.println((int) 'a'); //97  
   ...
-  System.out.println((int) 'z'); //112  
+  System.out.println((int) 'z'); //122  
   ```
+- 자릿수에 있는 정수 합산하는 방법  
+  - charAt사용해서 문자로 불러온 후, 그걸 또 정수로 바꿔서 더하고 하는게 아니라  
+  - for문 사용  
+  ```java  
+  int num = 정수;
+  int sum = 0;
+  for =(int i = 0; i < 자리수; i++) {
+  sum += num % 10;
+  num = num / 10;
+  }
+  ```  
+  
