@@ -68,7 +68,7 @@
   ```java  
   int num = 정수;
   int sum = 0;
-  for =(int i = 0; i < 자리수; i++) {
+  for (int i = 0; i < 자리수; i++) {
   sum += num % 10;
   num = num / 10;
   }
