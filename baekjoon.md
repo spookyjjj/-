@@ -44,9 +44,37 @@
 - 10951 A+B - 4  
   End Of File(EOF): 몇개의 입력이 들어오는지 모르는 문제에서 사용  
   
-  Scanner에서는 .hasNextInt()로 처리함. 입력이 있으면 true이므로 반복문 실행O, 없으면 false이므로 반복문 실행X
-    
-    
+  Scanner에서는 .hasNextInt()로 처리함. 입력이 있으면 true이므로 반복문 실행O, 없으면 false이므로 반복문 실행X  
+  ```java  
+  Scanner sc = new Scanner(System.in);
+  while (sc.hasNextInt()) { //입력을 받지 않음! 걍 boolean값을 리턴하는 메소드
+ 	int a = sc.nextInt(); //위에서 t로 반복문 안으로 들어온 후에야, 이 부분에서 입력을 받음
+	System.out.println(a);
+  }  
+  ```  
+- 15552 빠른 A+B ★  
+  BufferedReader와 Bufferedwriter는 Scanner와 System.out.print()과 유사한 기능이나,  
+  버퍼를 사용해서 모아뒀다 한번에 전송하기때문에 속도가 빨라(손수레 사용을 think) 대용량 대이터 처리에 많이 쓰인다
+  ```java  
+  //---BufferedReader (Scanner)----
+  import java.io.BufferedReader;
+  import java.io.InputStreamReader;
+  
+  BufferedReader bf = new BufferedReader(new InputStreamReader(System.in)); //선언
+  String s = bf.readLine(); 
+  int i = Integer.parseInt(bf.readLine()); //무조건 String으로 리턴하기때문에 int는 형변환이 필요  
+  
+  //---Bufferedwriter (System.out.print())-----
+  import java.io.BufferedWriter;
+  import java.io.OutputStreamWriter;
+  
+  BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out)); 
+  String s = "출력";
+  bw.write(s); //줄바꿈을 위해서는 따로 \n을 넣어줘야함
+  bw.close();   
+  ```  
+  +  예외처리(InputStream==null를 대비해서 반드시 해줘야 컴파일됨) : 1) readLine을 할때마다 try & catch ★2) throws IOException  
+  +  line이 아닌 공백단위로 데이터 불러오기 : ★1) StringTokenizer의 nextToken() 2) String.split()
 ### 문자열
 - 11720 숫자의 합  
   long으로도 double로도 표현이 힘든 숫자는 아예 문자열로 취급해서 해결
