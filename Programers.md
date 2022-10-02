@@ -86,3 +86,43 @@ for (int i = 1; i < n; i++) {
 - y와 b의 값이 주어졌을 때 가로와 세로를 구하는 연립방정식
 - 인수들 찾아내서 진행하는 완전 탐색으로 풀어도 되지만,
 - 가로 혹은 세로를 변수로 놓고 이차방정식을 풀어도 됨
+----
+### 제일 작은 수 제거하기
+- ★배열
+  - min구하기 `Arrays.stream(arr).min().getAsInt()` : 느림
+  - sort `Arrays.sort(arr)`
+  - 값으로 특정 인덱스 제거 `Arrays.stream(arr).filter(i -> i != min).toArray()` : 느림
+  - 인덱스로 제거 X : 배열은 칸 고정이라서 한칸씩 땡겨서 덮어 씌울 수 밖에..
+```java
+int[] answer = new int[arr.length-1];
+int minIndex=0;
+
+for(int i=0;i<arr.length;i++){
+    if(arr[minIndex]>arr[i]){
+        minIndex = i;
+    }
+}
+for(int i=minIndex+1;i<arr.length;i++){ //한칸씩 땡겨서 덮어 
+    arr[i-1] = arr[i];
+}
+for(int i=0;i<answer.length;i++){
+    answer[i] = arr[i];
+}
+```
+- ★리스트
+  - min구하기 `Collections.min(list)` : Integer로 반환
+  - sort `Collections.sort(list)`
+  - 값으로 특정 인덱스 제거 `list.remove(min)` : Integer(객체)를 넘겨줌
+  - 인덱스로 제거 : `list.remove(index)` : int를 넘겨줌
+```java
+ArrayList<Integer> arrayList = new ArrayList<Integer>();
+ for (int a : arr) {
+    arrayList.add(a);
+}
+Integer minimum = Collections.min(arrayList);
+arrayList.remove(minimum);
+int[] resultArray = new int[arr.length - 1];
+for (int i = 0; i < arrayList.size(); ++i) {
+    resultArray[i] = arrayList.get(i);
+}
+````
