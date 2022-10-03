@@ -126,3 +126,48 @@ for (int i = 0; i < arrayList.size(); ++i) {
     resultArray[i] = arrayList.get(i);
 }
 ````
+----
+### 탐욕법(Greedy) 체육복
+- 풀어라... 정렬의 필요성?
+``` JAVA
+class Solution {
+    public int solution(int n, int[] lost, int[] reserve) {
+		int answer = n - lost.length;
+		boolean step = true;
+		for (int i = 0; i < lost.length; i++) {
+			for (int j = 0; j < reserve.length; j++) {
+				if (lost[i] == reserve[j]) {
+					reserve[j] = -1;
+					answer++;
+					step = false; //더이상 볼 필요없다
+					break;
+				}
+			}
+			if (step) {
+				for (int j = 0; j < reserve.length; j++) {
+					if (lost[i] == (reserve[j] - 1) || lost[i] == (reserve[j] + 1)) {
+						reserve[j] = -1;
+						answer++;
+						step = false; //더이상 볼 필요없다
+						break;
+					}
+				}
+			}
+			if (step) {
+				for (int j = 0; j < reserve.length; j++) {
+					if (lost[i] == (reserve[j] + 1)) {
+						reserve[j] = -1;
+						answer++;
+						break;
+					}
+				}
+			}
+			step = true;
+		}
+        return answer;
+    }
+}
+//입력값 〉	5, [4, 2], [3, 5]
+//기댓값 〉	5
+//실행 결과 〉	실행한 결괏값 4이 기댓값 5과 다릅니다.
+``` 
