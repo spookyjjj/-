@@ -16,9 +16,9 @@ public String solution(String s) {
 - 숫자/공백도 .toLowerCase(), .toUpperCase()가 먹는다
 - split("")와 split(" ")는 다르다 -> 전자는 글자 하나하나 나누기 / 후자는 덩어리로 나누기
 - boolean을 스위치로 사용하자
-----
+---- 
 ### 최솟값 만들기
-- int배열 생성
+- int배열 생성 
   - int[] a = new int[길이];
   - int[] a = {값, 넣, 기, 변수도ok};
 - 배열의 정렬은 Arrays.sort
