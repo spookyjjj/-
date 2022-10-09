@@ -49,8 +49,8 @@ for (int i = 0; i < s.length(); i++) {
 }
 if (count > 0) {
     return false;
-} 
-```
+}   
+```  
 - 문자열의 비교
   - String이면 `문자열1.equals("문자열2")`
   - char이면 `글자1=='글자2'` <- ★따라서 **string.charAt(int)=='a'**
