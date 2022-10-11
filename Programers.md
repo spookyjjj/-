@@ -132,10 +132,16 @@ for (int i = 0; i < arrayList.size(); ++i) {
 ````
 ----
 ### 탐욕법(Greedy) 체육복
-- 풀어라... 정렬의 필요성?
+- 풀어라... 정렬의 필요성?  
+> 입력값 〉	5, [4, 2], [3, 5]  
+> 기댓값 〉	5  
+> 실행 결과 〉	실행한 결괏값 4이 기댓값 5과 다릅니다.  
+- 정렬을 했음에도 5번, 12번 실패! 
 ``` JAVA
 class Solution {
     public int solution(int n, int[] lost, int[] reserve) {
+    		Arrays.sort(lost);
+       	 	Arrays.sort(reserve);
 		int answer = n - lost.length;
 		boolean step = true;
 		for (int i = 0; i < lost.length; i++) {
@@ -157,21 +163,9 @@ class Solution {
 					}
 				}
 			}
-			if (step) {
-				for (int j = 0; j < reserve.length; j++) {
-					if (lost[i] == (reserve[j] + 1)) {
-						reserve[j] = -1;
-						answer++;
-						break;
-					}
-				}
-			}
 			step = true;
 		}
         return answer;
     }
 }
-//입력값 〉	5, [4, 2], [3, 5]
-//기댓값 〉	5
-//실행 결과 〉	실행한 결괏값 4이 기댓값 5과 다릅니다.
 ``` 
