@@ -136,7 +136,7 @@ for (int i = 0; i < arrayList.size(); ++i) {
 > 입력값 〉	5, [4, 2], [3, 5]  
 > 기댓값 〉	5  
 > 실행 결과 〉	실행한 결괏값 4이 기댓값 5과 다릅니다.  
-- 정렬을 했음에도 5번, 12번 실패! 
+- 정렬을 했음에도 5번, 12번 실패! testcase 추가 ㄱㄱ 
 ``` JAVA
 class Solution {
     public int solution(int n, int[] lost, int[] reserve) {
